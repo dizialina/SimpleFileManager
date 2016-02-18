@@ -183,6 +183,26 @@
     }
 }
 
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *fileName = [contents objectAtIndex:indexPath.row];
+    NSString *filePath = [self.path stringByAppendingPathComponent:fileName];
+    
+    NSError *error = nil;
+    BOOL removeFile = [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
+    if (error) {
+        NSLog(@"%@", error.localizedDescription);
+    }
+    if (removeFile) {
+        [contents removeObject:fileName];
+    }
+    
+    [tableView beginUpdates];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+    [tableView endUpdates];
+    
+}
+
 #pragma mark - Methods for better view of attributes of files
 
 - (NSString*) fileSizeFromValue:(unsigned long long)size {
