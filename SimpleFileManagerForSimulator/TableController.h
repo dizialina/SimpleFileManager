@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FileCell.h"
 
-@interface ViewController : UIViewController
+@interface TableController : UITableViewController
 
+@property (strong, nonatomic) NSString* path;
 
 @end
 

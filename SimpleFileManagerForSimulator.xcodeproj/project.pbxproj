@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84E520751C76203100065125 /* FileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E520741C76203100065125 /* FileCell.m */; };
 		84F071001C6BB1EA00A605BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F070FF1C6BB1EA00A605BA /* main.m */; };
 		84F071031C6BB1EA00A605BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F071021C6BB1EA00A605BA /* AppDelegate.m */; };
-		84F071061C6BB1EA00A605BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F071051C6BB1EA00A605BA /* ViewController.m */; };
+		84F071061C6BB1EA00A605BA /* TableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F071051C6BB1EA00A605BA /* TableController.m */; };
 		84F071091C6BB1EA00A605BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F071071C6BB1EA00A605BA /* Main.storyboard */; };
 		84F0710C1C6BB1EA00A605BA /* SimpleFileManagerForSimulator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84F0710A1C6BB1EA00A605BA /* SimpleFileManagerForSimulator.xcdatamodeld */; };
 		84F0710E1C6BB1EA00A605BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F0710D1C6BB1EA00A605BA /* Assets.xcassets */; };
@@ -36,12 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84E520731C76203100065125 /* FileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCell.h; sourceTree = "<group>"; };
+		84E520741C76203100065125 /* FileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCell.m; sourceTree = "<group>"; };
 		84F070FB1C6BB1EA00A605BA /* SimpleFileManagerForSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleFileManagerForSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F070FF1C6BB1EA00A605BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F071011C6BB1EA00A605BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84F071021C6BB1EA00A605BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		84F071041C6BB1EA00A605BA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		84F071051C6BB1EA00A605BA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		84F071041C6BB1EA00A605BA /* TableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableController.h; sourceTree = "<group>"; };
+		84F071051C6BB1EA00A605BA /* TableController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableController.m; sourceTree = "<group>"; };
 		84F071081C6BB1EA00A605BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84F0710B1C6BB1EA00A605BA /* SimpleFileManagerForSimulator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleFileManagerForSimulator.xcdatamodel; sourceTree = "<group>"; };
 		84F0710D1C6BB1EA00A605BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,9 +108,11 @@
 			children = (
 				84F071011C6BB1EA00A605BA /* AppDelegate.h */,
 				84F071021C6BB1EA00A605BA /* AppDelegate.m */,
-				84F071041C6BB1EA00A605BA /* ViewController.h */,
-				84F071051C6BB1EA00A605BA /* ViewController.m */,
+				84F071041C6BB1EA00A605BA /* TableController.h */,
+				84F071051C6BB1EA00A605BA /* TableController.m */,
 				84F071071C6BB1EA00A605BA /* Main.storyboard */,
+				84E520731C76203100065125 /* FileCell.h */,
+				84E520741C76203100065125 /* FileCell.m */,
 				84F0710D1C6BB1EA00A605BA /* Assets.xcassets */,
 				84F0710F1C6BB1EA00A605BA /* LaunchScreen.storyboard */,
 				84F071121C6BB1EA00A605BA /* Info.plist */,
@@ -276,7 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84F071061C6BB1EA00A605BA /* ViewController.m in Sources */,
+				84E520751C76203100065125 /* FileCell.m in Sources */,
+				84F071061C6BB1EA00A605BA /* TableController.m in Sources */,
 				84F071031C6BB1EA00A605BA /* AppDelegate.m in Sources */,
 				84F0710C1C6BB1EA00A605BA /* SimpleFileManagerForSimulator.xcdatamodeld in Sources */,
 				84F071001C6BB1EA00A605BA /* main.m in Sources */,
@@ -503,6 +509,7 @@
 				84F0712D1C6BB1EA00A605BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84F0712E1C6BB1EA00A605BA /* Build configuration list for PBXNativeTarget "SimpleFileManagerForSimulatorTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +518,7 @@
 				84F071301C6BB1EA00A605BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84F071311C6BB1EA00A605BA /* Build configuration list for PBXNativeTarget "SimpleFileManagerForSimulatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +527,7 @@
 				84F071331C6BB1EA00A605BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
