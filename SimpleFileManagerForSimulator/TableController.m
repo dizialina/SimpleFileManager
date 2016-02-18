@@ -66,15 +66,11 @@
     
     self.navigationItem.title = [self.path lastPathComponent];
     
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Trash"] style:UIBarButtonItemStylePlain target:self action:@selector(actionEdit:)];
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Home"] style:UIBarButtonItemStylePlain target:self action:@selector(backToRoot:)];
+    NSArray *barButtonsArray = [NSArray arrayWithObjects:deleteButton, homeButton, nil];
+    self.navigationItem.rightBarButtonItems = barButtonsArray;
     
-    if ([self.navigationController.viewControllers count] > 1) {
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Home"] style:UIBarButtonItemStylePlain target:self action:@selector(backToRoot:)];
-        self.navigationItem.rightBarButtonItem = item;
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,10 +79,6 @@
 }
 
 #pragma mark - Private Methods
-
-- (void) backToRoot:(UIBarButtonItem*)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
 
 - (BOOL) isDirectoryAtIndexPath:(NSIndexPath*)indexPath {
     
@@ -106,6 +98,21 @@
     [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDirectory];
     return  isDirectory;
     
+}
+
+- (void) actionEdit:(UIBarButtonItem*)sender {
+    BOOL isEditing = self.tableView.editing;
+    [self.tableView setEditing:!isEditing animated:YES];
+    UIImage *image = [UIImage imageNamed:@"Trash"];
+    if (self.tableView.editing) {
+        image = [UIImage imageNamed:@"Done"];
+    }
+    UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(actionEdit:)];
+    [self.navigationItem setRightBarButtonItem:deleteButton animated:YES];
+}
+
+- (void) backToRoot:(UIBarButtonItem*)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - UITableViewDataSource
@@ -135,10 +142,11 @@
         FileCell *cell = [tableView dequeueReusableCellWithIdentifier:fileIdentifier];
         NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
         
-        if (fileName.length > 27) {
-            cell.nameLabel.text = [NSString stringWithFormat:@"%@...", [fileName substringToIndex:27]];
+        if (fileName.length > 20) {
+            cell.nameLabel.text = [NSString stringWithFormat:@"%@...", [fileName substringToIndex:20]];
         } else {
-            cell.nameLabel.text = fileName;
+            cell.nameLabel.text = [fileName stringByDeletingPathExtension];
+            
         }
         
         cell.extensionLabel.text = [fileName pathExtension];
@@ -204,7 +212,11 @@
     
 }
 
+#pragma mark - Actions
 
+- (IBAction)homeButtonAction:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 
 @end

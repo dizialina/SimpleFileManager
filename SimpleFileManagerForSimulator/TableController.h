@@ -12,6 +12,11 @@
 @interface TableController : UITableViewController
 
 @property (strong, nonatomic) NSString* path;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem* homeButton;
+
+- (IBAction)homeButtonAction:(id)sender;
+
+
 
 @end
 

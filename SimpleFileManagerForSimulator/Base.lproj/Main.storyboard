@@ -127,7 +127,16 @@
                             <outlet property="delegate" destination="2KR-xh-2Qc" id="0kX-a6-qcJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="DKG-Sn-NXe"/>
+                    <navigationItem key="navigationItem" id="DKG-Sn-NXe">
+                        <barButtonItem key="rightBarButtonItem" image="Home" id="kdn-pE-xbc">
+                            <connections>
+                                <action selector="homeButtonAction:" destination="2KR-xh-2Qc" id="NJS-9e-SH1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="homeButton" destination="kdn-pE-xbc" id="YA7-fL-giY"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mn7-4A-soE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,5 +146,6 @@
     <resources>
         <image name="File" width="128" height="128"/>
         <image name="Folder" width="128" height="128"/>
+        <image name="Home" width="32" height="32"/>
     </resources>
 </document>
