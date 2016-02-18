@@ -43,7 +43,9 @@
     
     for (NSString *file in listOfFilesAtPath) {
         if (![self isDirectory:file]) {
-            [contents addObject:file];
+            if (![[file substringToIndex:1] isEqualToString:@"."]) {
+                [contents addObject:file];
+            }
         }
     }
     
@@ -132,9 +134,17 @@
         NSString *filePath = [self.path stringByAppendingPathComponent:fileName];
         FileCell *cell = [tableView dequeueReusableCellWithIdentifier:fileIdentifier];
         NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
-        cell.nameLabel.text = fileName;
+        
+        if (fileName.length > 27) {
+            cell.nameLabel.text = [NSString stringWithFormat:@"%@...", [fileName substringToIndex:27]];
+        } else {
+            cell.nameLabel.text = fileName;
+        }
+        
+        cell.extensionLabel.text = [fileName pathExtension];
         cell.sizeLabel.text = [self fileSizeFromValue:[attributes fileSize]];
         cell.dateLabel.text = [[self customDateFormat] stringFromDate:[attributes fileModificationDate]];
+        
         return cell;
         
     }
