@@ -190,7 +190,11 @@
         
     } else {
         selectedFile = [tableView cellForRowAtIndexPath:indexPath];
-        [self performSegueWithIdentifier:@"ImageSegue" sender:nil];
+        if ([selectedFile.extensionLabel.text isEqualToString:@"png"] ||
+            [selectedFile.extensionLabel.text isEqualToString:@"jpg"])
+        {
+            [self performSegueWithIdentifier:@"ImageSegue" sender:nil];
+        }
     }
 }
 
