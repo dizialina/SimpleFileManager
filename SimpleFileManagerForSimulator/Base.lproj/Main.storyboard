@@ -29,9 +29,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="FRm-Wb-S0r">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                            <connections>
+                                <outlet property="delegate" destination="2KR-xh-2Qc" id="BQQ-UQ-9jz"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FolderCell" textLabel="drq-dy-B6W" imageView="TlD-zT-QAv" rowHeight="44" style="IBUITableViewCellStyleDefault" id="akF-3y-aGx">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="akF-3y-aGx" id="Mu4-hu-u8R">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -52,7 +60,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FileCell" rowHeight="70" id="a5w-V8-ld0" customClass="FileCell">
-                                <rect key="frame" x="0.0" y="136" width="600" height="70"/>
+                                <rect key="frame" x="0.0" y="180" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a5w-V8-ld0" id="W82-8S-OfY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
@@ -136,6 +144,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="homeButton" destination="kdn-pE-xbc" id="YA7-fL-giY"/>
+                        <outlet property="searchBar" destination="FRm-Wb-S0r" id="bSn-87-99g"/>
                         <segue destination="c4D-0o-Tc7" kind="show" identifier="ImageSegue" id="Pfy-4n-3Ib"/>
                     </connections>
                 </tableViewController>

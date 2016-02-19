@@ -12,7 +12,9 @@
 @interface TableController () {
 
     NSMutableArray *contents;
+    NSArray *fullContents;
     FileCell *selectedFile;
+    NSOperation *currentOperation;
 
 }
 
@@ -55,6 +57,7 @@
         NSLog(@"%@", error.localizedDescription);
     }
     
+    fullContents = [NSArray arrayWithArray:contents];
     [self.tableView reloadData];
     self.navigationItem.title = [self.path lastPathComponent];
 }
@@ -128,6 +131,32 @@
 
 - (void) backToRoot:(UIBarButtonItem*)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void) showFilesAccordintToSearchBar {
+    
+    [currentOperation cancel];
+    __weak typeof(self) weakSelf = self;
+    NSString *filterString = self.searchBar.text;
+    
+    currentOperation = [NSBlockOperation blockOperationWithBlock:^{
+        NSMutableArray *filesArray = [[NSMutableArray alloc] init];
+        for (NSString *string in fullContents) {
+            if ([filterString length] > 0 && [string rangeOfString:filterString].location == NSNotFound) {
+                continue;
+            }
+            [filesArray addObject:string];
+        }
+        contents = filesArray;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.tableView reloadData];
+            currentOperation = nil;
+        });
+    }];
+    
+    [currentOperation start];
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -224,6 +253,21 @@
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
     [tableView endUpdates];
     
+}
+
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+    [searchBar setShowsCancelButton:NO animated:YES];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [self showFilesAccordintToSearchBar];
 }
 
 #pragma mark - Methods for better view of attributes of files

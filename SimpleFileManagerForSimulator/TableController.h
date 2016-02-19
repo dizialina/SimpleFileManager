@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) NSString* path;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem* homeButton;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 - (IBAction)homeButtonAction:(id)sender;
 
