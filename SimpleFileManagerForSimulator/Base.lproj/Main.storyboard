@@ -136,11 +136,44 @@
                     </navigationItem>
                     <connections>
                         <outlet property="homeButton" destination="kdn-pE-xbc" id="YA7-fL-giY"/>
+                        <segue destination="c4D-0o-Tc7" kind="show" identifier="ImageSegue" id="Pfy-4n-3Ib"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mn7-4A-soE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="380" y="452"/>
+        </scene>
+        <!--Image Controller-->
+        <scene sceneID="F6a-De-L0Y">
+            <objects>
+                <viewController id="c4D-0o-Tc7" customClass="ImageController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R3b-XS-KAd"/>
+                        <viewControllerLayoutGuide type="bottom" id="yLh-rp-I3C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IQw-VH-xbV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pn3-iz-Ka5">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pn3-iz-Ka5" firstAttribute="top" secondItem="R3b-XS-KAd" secondAttribute="bottom" id="3oM-sz-IFe"/>
+                            <constraint firstItem="yLh-rp-I3C" firstAttribute="top" secondItem="pn3-iz-Ka5" secondAttribute="bottom" id="BWf-eK-PnT"/>
+                            <constraint firstItem="pn3-iz-Ka5" firstAttribute="leading" secondItem="IQw-VH-xbV" secondAttribute="leading" id="DzM-76-pzx"/>
+                            <constraint firstAttribute="trailing" secondItem="pn3-iz-Ka5" secondAttribute="trailing" id="jb7-9w-b85"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fileImage" destination="pn3-iz-Ka5" id="GnS-MT-YF9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NL0-G3-xf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1089" y="452"/>
         </scene>
     </scenes>
     <resources>

@@ -7,10 +7,12 @@
 //
 
 #import "TableController.h"
+#import "ImageController.h"
 
 @interface TableController () {
 
     NSMutableArray *contents;
+    FileCell *selectedFile;
 
 }
 
@@ -76,6 +78,19 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"ImageSegue"]) {
+        ImageController *ic = [segue destinationViewController];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:selectedFile];
+        NSString *fileName = [contents objectAtIndex:indexPath.row];
+        NSString *filePath = [self.path stringByAppendingPathComponent:fileName];
+        ic.filePath = filePath;
+        ic.fileName = selectedFile.nameLabel.text;;
+    }
+    
 }
 
 #pragma mark - Private Methods
@@ -172,6 +187,10 @@
         TableController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"TableController"];
         vc.path = newPath;
         [self.navigationController pushViewController:vc animated:YES];
+        
+    } else {
+        selectedFile = [tableView cellForRowAtIndexPath:indexPath];
+        [self performSegueWithIdentifier:@"ImageSegue" sender:nil];
     }
 }
 
