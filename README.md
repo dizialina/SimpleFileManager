@@ -23,4 +23,7 @@ This file manager allows you to surf through the files on your hard drive, begin
 10. UISearchBar and its delegate for searching files by names (it can be one letter or the whole word) for showing you updated list of files that match this criteria.
 11. NSOperation and NSBlockOperation to speed-up search, move it to background thread and its cancelling if needed, if there are many files in folder for preventing slowdown of system. 
 
-
+##Screenshots:
+![Alt text](http://clip2net.com/clip/m496854/18477-clip-51kb.jpg "Optional title")
+![Alt text](http://clip2net.com/clip/m496854/b046f-clip-60kb.jpg "Optional title")
+![Alt text](http://clip2net.com/clip/m496854/3aa3d-clip-54kb.jpg "Optional title")
